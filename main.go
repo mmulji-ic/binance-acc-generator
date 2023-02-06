@@ -16,10 +16,11 @@ func main() {
 
 	mnemonic := ""
 	// Generate a Bip32 HD wallet for the mnemonic and a user supplied password
-	seed, err := bip39.NewSeedWithErrorChecking(mnemonic, "cosmostest")
-	if err != nil {
-		panic(err)
-	}
+	// seed, err := bip39.NewSeedWithErrorChecking(mnemonic, "cosmostest")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	seed := bip39.NewSeed(mnemonic, "cosmostest")
 
 	masterKey, _ := bip32.NewMasterKey(seed)
 	pubkey := secp256k1.PubKey{
